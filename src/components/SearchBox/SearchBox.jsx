@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import { useId } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import {setSearch} from "../../redux/filtersSlice.js"
+import { changeFilter } from "../../redux/filtersSlice.js"
 
 export const SearchBox = () => {
     const dispatch = useDispatch();
@@ -12,7 +12,7 @@ export const SearchBox = () => {
     const inputId = useId();
   
     const handleChange = (event) => {
-        dispatch(setSearch(event.target.value))
+        dispatch(changeFilter(event.target.value))
     };    
 
     return (

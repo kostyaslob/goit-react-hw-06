@@ -10,7 +10,6 @@ export const ContactList = () => {
 
     const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filters));
 
-
     return (
         <ul className={css.contactList}>
             {visibleContacts.map((contact) => (
