@@ -11,16 +11,15 @@ export const Contact = ({ data: { id, name, number } }) => {
 
     const handleDelete = () => {
         dispatch(deleteContact(id))
-    }
+        };
 
     return (
-
-            <div className={css.cont}>
-                <div className={css.contactInfo} >
-                    <p><FaUser /> {name}</p>
-                    <p><FaPhoneAlt /> {number}</p>
-                </div>
-                <button className={css.contactBtn} onClick={handleDelete}>Delete</button>
+        <div className={css.cont}>
+            <div className={css.contactInfo} >
+                <p><FaUser /> {name}</p>
+                <p><FaPhoneAlt /> {number}</p>
             </div>
+            <button className={css.contactBtn} onClick={handleDelete}>Delete</button>
+        </div>
     );
 }

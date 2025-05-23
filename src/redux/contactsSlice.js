@@ -4,8 +4,8 @@ const slice = createSlice({
     name: "contacts",
     initialState: {
         items: [
-            {"id": "id-1", "name": "Rosie Simpson", "number": "459-12-56"},
-            {"id": "id-2", "name": "Hermione Kline", "number": "443-89-12"},
+            {"id": "id-1", "name": "Kostya", "number": "123-45-67"},
+            {"id": "id-2", "name": "Roman", "number": "765-43-21"},
         ]
     },
     reducers: {

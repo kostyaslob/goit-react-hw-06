@@ -13,7 +13,7 @@ export const SearchBox = () => {
   
     const handleChange = (event) => {
         dispatch(changeFilter(event.target.value))
-    };    
+        };    
 
     return (
         <div>
