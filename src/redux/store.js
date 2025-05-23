@@ -13,8 +13,33 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-    return state;
-}
+  switch (action.type) {
+    case "contacts/addContact": {
+      return {
+        ...state,
+        contacts: {
+          items: [...state.contacts.items, action.payload],
+        },
+      };
+    }
+    case "contacts/deleteContact":
+      return {
+        ...state,
+        contacts: {
+          items: state.contacts.items.filter((contact) => contact.id !== action.payload)
+        },
+      }
+    case "filters/setSearch":
+      return {
+        ...state,
+        filters: {
+          name: action.payload
+        },
+      };
+    default:
+      return state;
+  }
+};
 
 export const store = configureStore({
     reducer: rootReducer

@@ -7,7 +7,9 @@ import { useId } from "react";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 
-import { useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice.js";
 
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
@@ -27,17 +29,17 @@ const initialValues = {
 };
 
 export const ContactForm = () => {
-    const contacts = useSelector((state) => state.contacts.items);
+    const dispatch = useDispatch();
 
     const nameFieldId = useId();
     const numberFieldId = useId();
 
     const handleSubmit = (values, actions) => {
-        addContact({
+        dispatch(addContact({
             id: nanoid(),
             name: values.name,
             number: values.number,
-        })
+        }));
         actions.resetForm();
     };
     
