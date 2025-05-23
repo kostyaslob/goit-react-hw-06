@@ -7,6 +7,8 @@ import { useId } from "react";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 
+import { useSelector } from "react-redux";
+
 const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
         .min(3, "Too Short!")
@@ -24,13 +26,14 @@ const initialValues = {
   number: ""
 };
 
-export default function ContactForm({ onAdd }) {
+export const ContactForm = () => {
+    const contacts = useSelector((state) => state.contacts.items);
 
     const nameFieldId = useId();
     const numberFieldId = useId();
 
     const handleSubmit = (values, actions) => {
-        onAdd({
+        addContact({
             id: nanoid(),
             name: values.name,
             number: values.number,

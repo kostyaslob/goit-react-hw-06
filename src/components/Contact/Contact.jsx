@@ -3,9 +3,11 @@ import css from "./Contact.module.css"
 import { FaUser } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 
+import { useSelector } from "react-redux";
 
+export const Contact = ({ data: { id, name, number } }) => {
+    const contacts = useSelector((state) => state.contacts.items);
 
-export default function Contact({ data: { id, name, number }, onDelete}) {
     return (
 
             <div className={css.cont}>
@@ -13,7 +15,7 @@ export default function Contact({ data: { id, name, number }, onDelete}) {
                     <p><FaUser /> {name}</p>
                     <p><FaPhoneAlt /> {number}</p>
                 </div>
-                <button className={css.contactBtn} onClick={() => onDelete(id)}>Delete</button>
+                <button className={css.contactBtn} onClick={() => deleteContact(id)}>Delete</button>
             </div>
     );
 }

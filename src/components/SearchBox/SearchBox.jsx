@@ -3,7 +3,10 @@ import { FaSearch } from "react-icons/fa";
 
 import { useId } from "react";
 
-export default function SearchBox({ value, onSearch }) {
+import { useSelector } from "react-redux";
+
+export const SearchBox = () => {
+    const filters = useSelector((state) => state.filters.name);
     const inputId = useId();
 
     return (
